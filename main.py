@@ -11,7 +11,7 @@ async def home():
 # /list all books
 @app.get("/list-all-books")
 async def list_all_books():
-    return {"message": "List all books"}
+    return {"Books": []}
 # /book-by-index/
 # /get-random-book
 # /add-book
