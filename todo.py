@@ -7,3 +7,10 @@ app = FastAPI()
 @app.get("/")
 async def home():
     return {"message": "Welcome to my todo list"}
+
+# Get --> Read Todo
+
+# POST --> Create Todo
+# PUT --> Update Todo
+# DELETE --> Delete Todo
+
