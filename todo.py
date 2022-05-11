@@ -33,5 +33,14 @@ async def get_todos():
 async def create_todos(todo: dict):
     todos.append(todo)
     return {'data': 'New Item has been added'}
+
+
 # PUT --> Update Todo
+@app.put('/todo/{id}', tags=['todos'], status_code=http.HTTPStatus.OK)
+async def update_todo(i: int, body: dict):
+    for todo in todos:
+        if int((todos['id'])) == i:
+            todo['activity'] = body['activity']
+            return {'data': 'Todo with id has been updated'}
+    return {'data': f'todo with this id number {id} not found'}
 # DELETE --> Delete Todo
