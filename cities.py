@@ -1,7 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 
-import requests
 
 app = FastAPI()
 
@@ -15,7 +14,7 @@ class City(BaseModel):
 
 @app.get('/')
 def index():
-    return {'key': 'value'}
+    return {"msg": "Hello World"}
 
 
 @app.get('/cities')
