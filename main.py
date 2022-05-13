@@ -3,9 +3,10 @@ from fastapi import FastAPI
 app = FastAPI()
 
 
-@app.get("/blog")
-async def home():
-    return {"message": "Blog lists"}
+# query params
+@app.get('/blog')
+async def home(limit):
+    return {'message': f'{limit} blog from Blog lists!'}
 
 
 @app.get('/blog/unpublished')
