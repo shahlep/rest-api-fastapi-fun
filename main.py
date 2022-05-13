@@ -36,4 +36,4 @@ async def show(id: int, limit: int = 5):
 
 @app.post('/blog')
 async def create_post(blog: Blog):
-    return {'message': 'blog has been created'}
+    return {f'{blog.title} has been created'}
