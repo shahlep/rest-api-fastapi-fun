@@ -21,3 +21,8 @@ async def unpublished():
 @app.get('/blog/{id}')
 async def show(id: int):
     return {'message': id}
+
+
+@app.get('/blog/{id}/comments')
+async def show(id: int, limit: int = 5):
+    return {'message': f'Blogger {id} got {limit} comments'}
