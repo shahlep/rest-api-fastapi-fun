@@ -23,6 +23,7 @@ async def show(id: int):
     return {'message': id}
 
 
+# dynamic path with default query params
 @app.get('/blog/{id}/comments')
 async def show(id: int, limit: int = 5):
     return {'message': f'Blogger {id} got {limit} comments'}
