@@ -5,8 +5,11 @@ app = FastAPI()
 
 # query params
 @app.get('/blog')
-async def home(limit):
-    return {'message': f'{limit} blog from Blog lists!'}
+async def home(limit: int, published: bool):
+    if published:
+        return {'message': f'{limit} published blog from Blog lists!'}
+    else:
+        return {'message': 'No published blog available'}
 
 
 @app.get('/blog/unpublished')
