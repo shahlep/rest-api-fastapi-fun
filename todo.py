@@ -28,6 +28,13 @@ async def get_todos():
     return {'todos': todos}
 
 
+# Get --> Read Todo
+@app.get('/todo', tags=['todos'], status_code=http.HTTPStatus.OK)
+async def get_todos_by_limit(limit,published:bool):
+    if published:
+        return {'todos': todos}
+
+
 # POST --> Create Todo
 @app.post('/todo', tags=['todos'], status_code=http.HTTPStatus.CREATED)
 async def create_todos(todo: dict):
