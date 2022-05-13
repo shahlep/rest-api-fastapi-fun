@@ -7,6 +7,7 @@ app = FastAPI()
 
 class Blog(BaseModel):
     title: str
+    description: str
 
 
 # query params
@@ -36,4 +37,4 @@ async def show(id: int, limit: int = 5):
 
 @app.post('/blog')
 async def create_post(blog: Blog):
-    return {f'{blog.title} has been created'}
+    return {f'{blog.title} has been created with {blog.description}'}
