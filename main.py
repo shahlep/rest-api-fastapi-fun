@@ -1,7 +1,12 @@
 from fastapi import FastAPI
 from typing import Optional
+from pydantic import BaseModel
 
 app = FastAPI()
+
+
+class Blog(BaseModel):
+    title: str
 
 
 # query params
@@ -27,3 +32,8 @@ async def show(id: int):
 @app.get('/blog/{id}/comments')
 async def show(id: int, limit: int = 5):
     return {'message': f'Blogger {id} got {limit} comments'}
+
+
+@app.post('/blog')
+async def create_post(blog: Blog):
+    return {'message': 'blog has been created'}
