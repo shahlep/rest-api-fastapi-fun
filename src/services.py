@@ -1,4 +1,6 @@
 import src.database as _database
+import sqlalchemy.orm as _orm
+import src.models as _models
 
 
 # https://docs.sqlalchemy.org/en/14/core/metadata.html - how to create db using sqlalchemy
@@ -12,3 +14,7 @@ def get_db():
         yield db
     finally:
         db.close()
+
+
+def get_user_by_email(db: _orm.Session, email: str):
+    return db.query(_models.User).filter(_models.User.email == email).first()
