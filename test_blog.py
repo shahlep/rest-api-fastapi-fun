@@ -1,7 +1,7 @@
 from fastapi.testclient import TestClient
 
 
-from main import app
+from blog import app
 
 client = TestClient(app)
 
