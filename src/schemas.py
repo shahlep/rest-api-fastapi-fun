@@ -1,5 +1,6 @@
 import pydantic as _pd
 import datetime as _dt
+from typing import List
 
 
 class _PostBase(_pd.BaseModel):
@@ -19,3 +20,17 @@ class Post(_PostBase):
 
     class config:
         orm_mode = True
+
+
+class _UserBase(_pd.BaseModel):
+    email: str
+
+
+class _UserCreate(_UserBase):
+    password: str
+
+
+class User(_UserBase):
+    id: int
+    is_active: bool
+    posts: List[Post]
