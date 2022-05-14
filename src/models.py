@@ -12,6 +12,8 @@ class User(_database.Base):
     password = _sql.column(_sql.String)
     is_active = _sql.column(_sql.Boolean, default=True)
 
+    posts = _orm.relationship('Post', back_populates='owner')
+
 
 class Post(_database.Base):
     __tablename__ = 'posts'
@@ -20,7 +22,7 @@ class Post(_database.Base):
     content = _sql.column(_sql.String, index=True)
     owner_id = _sql.column(_sql.Integer, _sql.ForeignKey('user.id'))
 
-    date_created = _sql.column(_sql.DateTime,default=_dt.datetime.utcnow)
+    date_created = _sql.column(_sql.DateTime, default=_dt.datetime.utcnow)
     date_last_updated = _sql.column(_sql.DateTime, default=_dt.datetime.utcnow)
 
-
+    owner = _orm.relationship('User', back_populates='posts')
