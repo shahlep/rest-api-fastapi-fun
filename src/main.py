@@ -5,3 +5,7 @@ app = FastAPI()
 
 _services.create_database()
 
+# https://fastapi.tiangolo.com/tutorial/sql-databases/
+
+
+
