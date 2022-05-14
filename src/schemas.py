@@ -34,3 +34,6 @@ class User(_UserBase):
     id: int
     is_active: bool
     posts: List[Post]
+
+    class config:
+        orm_mode = True
