@@ -15,3 +15,5 @@ def create_user(user: _schemas._UserCreate, db: _orm.Session = _fastapi.Depends(
     if db_user:
         raise _fastapi.HTTPException(status_code=400,detail='email already in use!')
     return _services.create_user(db=db, user=user)
+
+
